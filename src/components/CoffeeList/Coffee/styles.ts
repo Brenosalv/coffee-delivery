@@ -49,7 +49,6 @@ export const FooterContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-bottom: auto;
-  justify-content: space-between;
 
   button {
     border: none;
@@ -63,7 +62,6 @@ export const Price = styled.div`
   font-size: 1.5rem;
   line-height: 18px;
   color: ${(props) => props.theme.text};
-  margin-right: 23px;
 
   span {
     font-family: 'Roboto', sans-serif;
@@ -74,6 +72,11 @@ export const Price = styled.div`
     color: ${(props) => props.theme.text};
     margin-right: 4px;
   }
+`
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  gap: 8px;
 `
 
 export const SelectorContainer = styled.div`
@@ -92,6 +95,10 @@ export const SelectorContainer = styled.div`
   gap: 8px;
 
   min-height: 38px;
+
+  button {
+    background: transparent;
+  }
 `
 
 export const SelectorCount = styled.span`
@@ -109,10 +116,14 @@ export const ShoppingCartIcon = styled.img`
   background: ${(props) => props.theme.purpleDark};
   border-radius: 6px;
   padding: 8px;
+
+  &:hover {
+    opacity: 0.85;
+    transition: ease-in-out 50ms;
+  }
 `
 
 export const Signal = styled.span`
-  font-family: 'Baloo 2', sans-serif;
   font-style: normal;
   font-size: 1.5rem;
   line-height: 18px;
