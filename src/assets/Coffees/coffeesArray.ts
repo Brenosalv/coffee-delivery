@@ -50,7 +50,7 @@ export const coffees: Coffee[] = [
     id: uuidv4(),
     name: "Iced Espresso",
     description: "Drink prepared with espresso coffee and ice cubes",
-    price: "9.90",
+    price: "8.90",
     imageName: IcedEspresso,
     tags: [
       "Traditional",
@@ -61,7 +61,7 @@ export const coffees: Coffee[] = [
     id: uuidv4(),
     name: "Coffee with Milk",
     description: "Half and half traditional espresso with steamed milk",
-    price: "9.90",
+    price: "11.90",
     imageName: CoffeeWithMilk,
     tags: [
       "Traditional",
@@ -72,7 +72,7 @@ export const coffees: Coffee[] = [
     id: uuidv4(),
     name: "Latte",
     description: "A shot of espresso with twice as much milk and creamy foam",
-    price: "9.90",
+    price: "12.90",
     imageName: Latte,
     tags: [
       "Traditional",
@@ -83,7 +83,7 @@ export const coffees: Coffee[] = [
     id: uuidv4(),
     name: "Capuccino",
     description: "A shot of espresso with twice as much milk and creamy foam",
-    price: "9.90",
+    price: "12.90",
     imageName: Capuccino,
     tags: [
       "Traditional",
@@ -94,7 +94,7 @@ export const coffees: Coffee[] = [
     id: uuidv4(),
     name: "Macchiato",
     description: "Espresso coffee mixed with a little hot milk and foam",
-    price: "9.90",
+    price: "12.90",
     imageName: Macchiato,
     tags: [
       "Traditional",
@@ -105,7 +105,7 @@ export const coffees: Coffee[] = [
     id: uuidv4(),
     name: "Mocaccino",
     description: "Espresso coffee with chocolate sauce, a little milk and foam",
-    price: "9.90",
+    price: "12.90",
     imageName: Mocaccino,
     tags: [
       "Traditional",
@@ -116,7 +116,7 @@ export const coffees: Coffee[] = [
     id: uuidv4(),
     name: "Hot Chocolate",
     description: "Drink made with chocolate dissolved in hot milk and coffee",
-    price: "9.90",
+    price: "7.90",
     imageName: HotChocolate,
     tags: [
       "Special",
@@ -127,7 +127,7 @@ export const coffees: Coffee[] = [
     id: uuidv4(),
     name: "Cuban",
     description: "Iced espresso drink with rum, cream and mint",
-    price: "9.90",
+    price: "10.90",
     imageName: Cuban,
     tags: [
       "Special",
@@ -139,7 +139,7 @@ export const coffees: Coffee[] = [
     id: uuidv4(),
     name: "Hawaiian",
     description: "Sweet drink prepared with coffee and coconut milk",
-    price: "9.90",
+    price: "10.90",
     imageName: Hawaiian,
     tags: [
       "Special"
@@ -149,7 +149,7 @@ export const coffees: Coffee[] = [
     id: uuidv4(),
     name: "Arabic",
     description: "Drink prepared with Arabic coffee beans and spices",
-    price: "9.90",
+    price: "10.90",
     imageName: Arab,
     tags: [
       "Special",
@@ -159,7 +159,7 @@ export const coffees: Coffee[] = [
     id: uuidv4(),
     name: "Irish",
     description: "Drink based on coffee, Irish whiskey, sugar and whipped cream",
-    price: "9.90",
+    price: "10.90",
     imageName: Irish,
     tags: [
       "Special",
