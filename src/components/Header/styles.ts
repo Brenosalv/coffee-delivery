@@ -28,6 +28,8 @@ export const UserLocation = styled.p`
 `
 
 export const CartContainer = styled.div`
+  position: relative;
+
   background: ${(props) => props.theme.yellowLight};
   padding: 8px;
   border-radius: 6px;
@@ -40,4 +42,18 @@ export const CartContainer = styled.div`
     transition: ease-in-out 50ms;
     cursor: pointer;
   }
+`
+
+export const BadgeContainer = styled.div`
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: auto;
+  min-width: 20px;
+  padding: 4px;
+  text-align: center;
+  border-radius:50%;
+  background: ${(props) => props.theme.yellowDark};
+  color: ${(props) => props.theme.white};
+  font-size: 0.75rem;
 `

@@ -6,3 +6,11 @@ export interface Coffee {
   tags: string[];
   price: string;
 }
+
+export interface CoffeeCartDetails {
+  id: string;
+  name: string;
+  imageName: string;
+  price: string;
+  units: string;
+}

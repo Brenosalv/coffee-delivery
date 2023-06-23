@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import CartIcon from "../../assets/Cart.svg";
 import LocationIcon from "../../assets/Location.svg";
 import LogoImg from "../../assets/Logo.svg";
+import { CartContext } from "../../contexts/CartContext";
 import {
+  BadgeContainer,
   CartContainer,
   HeaderContainer,
   LocationAndCart,
@@ -10,6 +13,8 @@ import {
 } from "./styles";
 
 export function Header() {
+  const cart = useContext(CartContext);
+
   return (
     <HeaderContainer>
       <img src={LogoImg} alt="Coffee Delivery" />
@@ -24,6 +29,13 @@ export function Header() {
         </LocationContainer>
 
         <CartContainer>
+          {cart?.totalUnits && cart.totalUnits > 0 && (
+            <BadgeContainer>
+              <span>
+                {cart?.totalUnits}
+              </span>
+            </BadgeContainer>
+          )}
           <img src={CartIcon} alt="Cart" />
         </CartContainer>
       </LocationAndCart>

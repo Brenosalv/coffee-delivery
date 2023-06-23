@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ShoppingCart from "../../../assets/ShoppingCart.svg";
+import { CartContext } from "../../../contexts/CartContext";
 import { Coffee } from "../../../types/coffees";
 import { Tag } from "./Tag";
 import {
@@ -17,24 +18,22 @@ import {
   TagsContainer
 } from "./styles";
 
-export function CoffeeCard({ name, description, imageName, tags, price }: Coffee) {
-  const [selectorCount, setSelectorCount] = useState<number>(1);
+export function CoffeeCard({ id, name, description, imageName, tags, price }: Coffee) {
+  const [coffeeUnits, setCoffeeUnits] = useState<number>(1);
+
+  const cart = useContext(CartContext);
 
   const minCoffeeOrder = 2;
   const maxCoffeeOrder = 25;
 
   function handleCounterSubtract() {
-    if (selectorCount >= minCoffeeOrder)
-      setSelectorCount(prev => prev - 1);
+    if (coffeeUnits >= minCoffeeOrder)
+      setCoffeeUnits(prev => prev - 1);
   }
 
   function handleCounterAdd() {
-    if (selectorCount < maxCoffeeOrder)
-      setSelectorCount(prev => prev + 1);
-  }
-
-  function handleAddCoffeeToCart() {
-
+    if (coffeeUnits < maxCoffeeOrder)
+      setCoffeeUnits(prev => prev + 1);
   }
 
   return (
@@ -70,7 +69,7 @@ export function CoffeeCard({ name, description, imageName, tags, price }: Coffee
             </button>
 
             <SelectorCount>
-              {selectorCount}
+              {coffeeUnits}
             </SelectorCount>
 
             <button onClick={handleCounterAdd}>
@@ -80,7 +79,16 @@ export function CoffeeCard({ name, description, imageName, tags, price }: Coffee
             </button>
           </SelectorContainer>
 
-          <button onClick={handleAddCoffeeToCart}>
+          <button
+            onClick={
+              () => cart?.addCoffeeToCart({
+                id,
+                name,
+                imageName,
+                price,
+                units: coffeeUnits.toString()
+              })}
+          >
             <ShoppingCartIcon src={ShoppingCart} alt="" />
           </button>
         </ButtonsContainer>
