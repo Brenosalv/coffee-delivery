@@ -27,8 +27,10 @@ export const UserLocation = styled.p`
   color: ${(props) => props.theme.purpleDark};
 `
 
-export const CartContainer = styled.div`
+export const CartButton = styled.button`
   position: relative;
+
+  border: none;
 
   background: ${(props) => props.theme.yellowLight};
   padding: 8px;
@@ -36,12 +38,6 @@ export const CartContainer = styled.div`
   
   display: flex;
   align-items: center;
-
-  &:hover {
-    opacity: .85;
-    transition: ease-in-out 50ms;
-    cursor: pointer;
-  }
 `
 
 export const BadgeContainer = styled.div`
