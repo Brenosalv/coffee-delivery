@@ -1,11 +1,11 @@
+import { CheckoutForm } from "../../components/Checkout/CheckoutForm";
 import { OrderSummary } from "../../components/Checkout/OrderSummary";
-import { UserProfileForm } from "../../components/Checkout/UserProfileForm";
 import { Container } from "./styles";
 
 export function Checkout() {
   return (
     <Container>
-      <UserProfileForm />
+      <CheckoutForm />
       <OrderSummary />
     </Container>
   )
