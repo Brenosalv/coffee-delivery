@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import ShoppingCart from "../../../assets/generalIcons/ShoppingCart.svg";
 import { CartContext } from "../../../contexts/CartContext";
 import { Coffee } from "../../../types/coffees";
+import { defaultCurrency } from "../../../utils/currency";
 import { SelectorCounter } from "../../SelectorCounter";
 import { Tag } from "./Tag";
 import {
@@ -54,7 +55,7 @@ export function CoffeeCard({ id, name, description, imageName, tags, price }: Co
 
       <FooterContainer>
         <Price>
-          <span>US$</span>
+          <span>{defaultCurrency}</span>
           {price}
         </Price>
 

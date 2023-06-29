@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../../../contexts/CartContext";
+import { defaultCurrency } from "../../../utils/currency";
 import { Title } from "../styles";
 import { OrderItem } from "./OrderItem";
 import { Container, OrderDetailsContainer, OrderItemContainer, OrderSummaryDetailContainer, OrderSummaryDetailsContainer, OrderTotalContainer } from "./styles";
@@ -46,7 +47,7 @@ export function OrderSummary() {
               Total items
             </span>
             <span>
-              US$ {cart?.subtotalPrice}
+              {defaultCurrency} {cart?.subtotalPrice}
             </span>
           </OrderSummaryDetailContainer>
 
@@ -55,7 +56,7 @@ export function OrderSummary() {
               Delivery
             </span>
             <span>
-              US$ {cart?.deliveryPrice}
+              {defaultCurrency} {cart?.deliveryPrice}
             </span>
           </OrderSummaryDetailContainer>
 
@@ -64,7 +65,7 @@ export function OrderSummary() {
               Total
             </span>
             <span>
-              US$ {cart?.totalPrice}
+              {defaultCurrency} {cart?.totalPrice}
             </span>
           </OrderTotalContainer>
         </OrderSummaryDetailsContainer>

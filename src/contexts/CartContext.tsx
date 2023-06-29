@@ -24,7 +24,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   const [cartItems, setCartItems] = useState<CoffeeCartDetails[]>([]);
   const [wasCartUpdated, setWasCartUpdated] = useState(false);
 
-  const deliveryPrice = (10).toFixed(2);
+  const deliveryPrice = (4.5).toFixed(2);
   const totalPrice = (Number(subtotalPrice ?? 0) + Number(deliveryPrice)).toFixed(2);
 
   useEffect(() => {

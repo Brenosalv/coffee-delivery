@@ -2,6 +2,7 @@ import { useState } from "react";
 import TrashIcon from "../../../../assets/generalIcons/trash.svg";
 import { CoffeeCartDetails } from "../../../../types/coffees";
 import { CartUnitsLimit } from "../../../../utils/cartUnitsLimit";
+import { defaultCurrency } from "../../../../utils/currency";
 import { SelectorCounter } from "../../../SelectorCounter";
 import { CoffeeName, Container, Price, RemoveButton } from "./styles";
 
@@ -70,7 +71,7 @@ export function OrderItem({
       </div>
 
       <Price>
-        US$ {itemTotalPrice}
+        {defaultCurrency} {itemTotalPrice}
       </Price>
     </Container>
   )
