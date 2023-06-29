@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form";
-import Location from "../../../assets/Location2.svg";
-import Money from "../../../assets/Money.svg";
+import Location from "../../../assets/generalIcons/Location2.svg";
+import Money from "../../../assets/generalIcons/Money.svg";
 import { paymentMethods } from "../../../assets/paymentMethods/paymentMethodsArray";
 import { Title } from "../styles";
 import { FormHeader } from "./FormHeader";

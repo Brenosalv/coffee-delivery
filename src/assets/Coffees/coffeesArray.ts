@@ -1,19 +1,19 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Coffee } from "../../types/coffees";
-import American from "../Coffees/American.svg";
-import Arab from "../Coffees/Arab.svg";
-import Capuccino from "../Coffees/Capuccino.svg";
-import CoffeeWithMilk from "../Coffees/CoffeeWithMilk.svg";
-import Creamy from "../Coffees/Creamy.svg";
-import Cuban from "../Coffees/Cuban.svg";
-import Espresso from "../Coffees/Espresso.svg";
-import Hawaiian from "../Coffees/Hawaiian.svg";
-import HotChocolate from "../Coffees/HotChocolate.svg";
-import IcedEspresso from "../Coffees/IcedEspresso.svg";
-import Irish from "../Coffees/Irish.svg";
-import Latte from "../Coffees/Latte.svg";
-import Macchiato from "../Coffees/Macchiato.svg";
-import Mocaccino from "../Coffees/Mocaccino.svg";
+import American from "../Coffees/icons/American.svg";
+import Arab from "../Coffees/icons/Arab.svg";
+import Capuccino from "../Coffees/icons/Capuccino.svg";
+import CoffeeWithMilk from "../Coffees/icons/CoffeeWithMilk.svg";
+import Creamy from "../Coffees/icons/Creamy.svg";
+import Cuban from "../Coffees/icons/Cuban.svg";
+import Espresso from "../Coffees/icons/Espresso.svg";
+import Hawaiian from "../Coffees/icons/Hawaiian.svg";
+import HotChocolate from "../Coffees/icons/HotChocolate.svg";
+import IcedEspresso from "../Coffees/icons/IcedEspresso.svg";
+import Irish from "../Coffees/icons/Irish.svg";
+import Latte from "../Coffees/icons/Latte.svg";
+import Macchiato from "../Coffees/icons/Macchiato.svg";
+import Mocaccino from "../Coffees/icons/Mocaccino.svg";
 
 export const coffees: Coffee[] = [
   {

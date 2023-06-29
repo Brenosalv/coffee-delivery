@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import ShoppingCart from "../../../assets/ShoppingCart.svg";
+import ShoppingCart from "../../../assets/generalIcons/ShoppingCart.svg";
 import { CartContext } from "../../../contexts/CartContext";
 import { Coffee } from "../../../types/coffees";
 import { SelectorCounter } from "../../SelectorCounter";

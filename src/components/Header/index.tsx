@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import CartIcon from "../../assets/Cart.svg";
-import LocationIcon from "../../assets/Location.svg";
-import LogoImg from "../../assets/Logo.svg";
+import CartIcon from "../../assets/generalIcons/Cart.svg";
+import LocationIcon from "../../assets/generalIcons/Location.svg";
+import LogoImg from "../../assets/generalIcons/Logo.svg";
 import { CartContext } from "../../contexts/CartContext";
 import {
   BadgeContainer,
