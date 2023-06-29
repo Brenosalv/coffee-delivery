@@ -6,13 +6,6 @@ export const OrderForm = styled.form`
   gap: 12px;
 `
 
-export const Title = styled.h1`
-  color: ${(props) => props.theme.title};
-  font-size: 1.125rem;
-  font-family: "Baloo 2", sans-serif;
-  font-weight: 700;
-`
-
 export const FormContainer = styled.div`
   background: ${(props) => props.theme.card};
   padding: 40px;

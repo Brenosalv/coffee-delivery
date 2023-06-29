@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import ShoppingCart from "../../../assets/ShoppingCart.svg";
 import { CartContext } from "../../../contexts/CartContext";
 import { Coffee } from "../../../types/coffees";
+import { SelectorCounter } from "../../SelectorCounter";
 import { Tag } from "./Tag";
 import {
   ButtonsContainer,
@@ -11,10 +12,7 @@ import {
   Image,
   Name,
   Price,
-  SelectorContainer,
-  SelectorCount,
   ShoppingCartIcon,
-  Signal,
   TagsContainer
 } from "./styles";
 
@@ -61,23 +59,11 @@ export function CoffeeCard({ id, name, description, imageName, tags, price }: Co
         </Price>
 
         <ButtonsContainer>
-          <SelectorContainer>
-            <button onClick={handleCounterSubtract}>
-              <Signal>
-                −
-              </Signal>
-            </button>
-
-            <SelectorCount>
-              {coffeeUnits}
-            </SelectorCount>
-
-            <button onClick={handleCounterAdd}>
-              <Signal>
-                +
-              </Signal>
-            </button>
-          </SelectorContainer>
+          <SelectorCounter
+            coffeeUnits={coffeeUnits}
+            onCounterAdd={handleCounterAdd}
+            onCounterSubstract={handleCounterSubtract}
+          />
 
           <button
             onClick={

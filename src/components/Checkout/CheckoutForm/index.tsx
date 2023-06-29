@@ -2,9 +2,10 @@ import { FormProvider, useForm } from "react-hook-form";
 import Location from "../../../assets/Location2.svg";
 import Money from "../../../assets/Money.svg";
 import { paymentMethods } from "../../../assets/paymentMethods/paymentMethodsArray";
+import { Title } from "../styles";
 import { FormHeader } from "./FormHeader";
 import { PaymentMethod } from "./PaymentMethod";
-import { AddressInputsContainer, CepInput, CityInput, ComplementInput, FormContainer, NeighborhoodInput, NumberInput, OrderForm, PaymentMethodsContainer, StateInput, StreetInput, Title } from "./styles";
+import { AddressInputsContainer, CepInput, CityInput, ComplementInput, FormContainer, NeighborhoodInput, NumberInput, OrderForm, PaymentMethodsContainer, StateInput, StreetInput } from "./styles";
 
 export function CheckoutForm() {
   const form = useForm();
