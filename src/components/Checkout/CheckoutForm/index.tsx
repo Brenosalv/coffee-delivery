@@ -3,15 +3,16 @@ import Location from "../../../assets/generalIcons/Location2.svg";
 import Money from "../../../assets/generalIcons/Money.svg";
 import { paymentMethods } from "../../../assets/paymentMethods/paymentMethodsArray";
 import { Title } from "../styles";
+import { DeliveryAddressInputs } from "./DeliveryAddressInputs";
 import { FormHeader } from "./FormHeader";
 import { PaymentMethod } from "./PaymentMethod";
-import { AddressInputsContainer, CepInput, CityInput, ComplementInput, FormContainer, NeighborhoodInput, NumberInput, OrderForm, PaymentMethodsContainer, StateInput, StreetInput } from "./styles";
+import { FormContainer, OrderForm, PaymentMethodsContainer } from "./styles";
 
 export function CheckoutForm() {
   const form = useForm();
 
   function handleFormSubmit(data: any) { // TODO: Add right type for data
-    console.log(data)
+    console.log(data);
   }
 
   return (
@@ -28,47 +29,7 @@ export function CheckoutForm() {
             description="Inform the address where you wish to receive your coffee"
           />
 
-          <AddressInputsContainer>
-            <CepInput
-              placeholder="CEP"
-              {...form.register("cep")}
-            />
-
-            <StreetInput
-              placeholder="Street"
-              {...form.register("street")}
-            />
-
-            <div>
-              <NumberInput
-                placeholder="Number"
-                {...form.register("number")}
-              />
-
-              <ComplementInput
-                placeholder="Complement"
-                {...form.register("complement")}
-              />
-            </div>
-
-
-            <div>
-              <NeighborhoodInput
-                placeholder="Neighborhood"
-                {...form.register("neighborhood")}
-              />
-
-              <CityInput
-                placeholder="City"
-                {...form.register("city")}
-              />
-
-              <StateInput
-                placeholder="State"
-                {...form.register("state")}
-              />
-            </div>
-          </AddressInputsContainer>
+          <DeliveryAddressInputs />
         </FormContainer>
 
         <FormContainer>
