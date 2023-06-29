@@ -31,6 +31,10 @@ export const Input = styled.input`
     border-color: ${(props) => props.theme.purple};
     box-shadow: none;
   }
+
+  &::placeholder {
+    color: ${(props) => props.theme.label};
+  }
 `
 
 export const CepInput = styled(Input)`
