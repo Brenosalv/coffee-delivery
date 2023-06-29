@@ -36,3 +36,15 @@ export const OrderTotalContainer = styled(OrderSummaryDetailContainer)`
   font-size: 1.25rem;
   font-weight: 700;
 `
+
+export const ConfirmOrder = styled.button`
+  display: flex;
+  padding: 12px 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background: ${(props) => props.theme.yellow};
+  color: ${(props) => props.theme.white};
+  width: 100%;
+  margin-top: 24px;
+`

@@ -1,12 +1,14 @@
 import { useContext } from "react";
+import { useFormContext } from "react-hook-form";
 import { CartContext } from "../../../contexts/CartContext";
 import { defaultCurrency } from "../../../utils/currency";
 import { Title } from "../styles";
 import { OrderItem } from "./OrderItem";
-import { Container, OrderDetailsContainer, OrderItemContainer, OrderSummaryDetailContainer, OrderSummaryDetailsContainer, OrderTotalContainer } from "./styles";
+import { ConfirmOrder, Container, OrderDetailsContainer, OrderItemContainer, OrderSummaryDetailContainer, OrderSummaryDetailsContainer, OrderTotalContainer } from "./styles";
 
 export function OrderSummary() {
   const cart = useContext(CartContext);
+  const form = useFormContext();
 
   function handleOrderItemRemove(coffeeId: string) {
     cart?.removeCoffeeFromCart(coffeeId);
@@ -18,6 +20,10 @@ export function OrderSummary() {
 
   function handleOrderItemAddUnit(coffeeId: string) {
     cart?.updateCoffeeUnitFromCart(coffeeId, "add");
+  }
+
+  function handleFormSubmit(data: any) {
+    console.log(data);
   }
 
   return (
@@ -69,6 +75,13 @@ export function OrderSummary() {
             </span>
           </OrderTotalContainer>
         </OrderSummaryDetailsContainer>
+
+        <ConfirmOrder
+          type="submit"
+          onClick={form.handleSubmit(handleFormSubmit)}
+        >
+          Confirm order
+        </ConfirmOrder>
       </OrderDetailsContainer>
     </Container>
   );
