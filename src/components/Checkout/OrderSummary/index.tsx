@@ -7,6 +7,18 @@ import { Container, OrderDetailsContainer, OrderItemContainer, OrderSummaryDetai
 export function OrderSummary() {
   const cart = useContext(CartContext);
 
+  function handleOrderItemRemove(coffeeId: string) {
+    cart?.removeCoffeeFromCart(coffeeId);
+  }
+
+  function handleOrderItemRemoveUnit(coffeeId: string) {
+    cart?.updateCoffeeUnitFromCart(coffeeId, "remove");
+  }
+
+  function handleOrderItemAddUnit(coffeeId: string) {
+    cart?.updateCoffeeUnitFromCart(coffeeId, "add");
+  }
+
   return (
     <Container>
       <Title>
@@ -18,6 +30,9 @@ export function OrderSummary() {
           <OrderItemContainer>
             <OrderItem
               key={orderItem.id}
+              onRemoveOrderItem={handleOrderItemRemove}
+              onRemoveOrderItemUnit={handleOrderItemRemoveUnit}
+              onAddOrderItemUnit={handleOrderItemAddUnit}
               {...orderItem}
             />
 

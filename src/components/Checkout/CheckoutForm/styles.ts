@@ -67,7 +67,7 @@ export const NeighborhoodInput = styled(Input)`
 `
 
 export const CityInput = styled(Input)`
-  
+  flex: 1;
 `
 
 export const StateInput = styled(Input)`

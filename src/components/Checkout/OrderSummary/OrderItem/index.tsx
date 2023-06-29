@@ -4,20 +4,41 @@ import { CoffeeCartDetails } from "../../../../types/coffees";
 import { SelectorCounter } from "../../../SelectorCounter";
 import { CoffeeName, Container, Price, RemoveButton } from "./styles";
 
-export function OrderItem({ name, imageName, units, price }: CoffeeCartDetails) {
-  const [coffeeUnits, setCoffeeUnits] = useState(0);
+interface OrderItemProps extends CoffeeCartDetails {
+  onRemoveOrderItem: (coffeeId: string) => void;
+  onRemoveOrderItemUnit: (coffeeId: string) => void;
+  onAddOrderItemUnit: (coffeeId: string) => void;
+}
+
+export function OrderItem({
+  name,
+  imageName,
+  units,
+  price,
+  id,
+  onRemoveOrderItem,
+  onRemoveOrderItemUnit,
+  onAddOrderItemUnit
+}: OrderItemProps) {
+  const [coffeeUnits, setCoffeeUnits] = useState<number>(Number(units));
+
+  const itemTotalPrice = (Number(price) * Number(units)).toFixed(2);
 
   const minCoffeeOrder = 2;
   const maxCoffeeOrder = 25;
 
   function handleCounterSubtract() {
-    if (coffeeUnits >= minCoffeeOrder)
+    if (coffeeUnits >= minCoffeeOrder) {
       setCoffeeUnits(prev => prev - 1);
+      onRemoveOrderItemUnit(id);
+    }
   }
 
   function handleCounterAdd() {
-    if (coffeeUnits < maxCoffeeOrder)
+    if (coffeeUnits < maxCoffeeOrder) {
       setCoffeeUnits(prev => prev + 1);
+      onAddOrderItemUnit(id);
+    }
   }
 
   return (
@@ -36,12 +57,12 @@ export function OrderItem({ name, imageName, units, price }: CoffeeCartDetails) 
 
         <div>
           <SelectorCounter
-            coffeeUnits={Number(units)}
+            coffeeUnits={coffeeUnits}
             onCounterAdd={handleCounterAdd}
             onCounterSubstract={handleCounterSubtract}
           />
 
-          <RemoveButton>
+          <RemoveButton onClick={() => onRemoveOrderItem(id)}>
             <img src={TrashIcon} alt="Trash Icon" />
             <span>
               REMOVE
@@ -51,7 +72,7 @@ export function OrderItem({ name, imageName, units, price }: CoffeeCartDetails) 
       </div>
 
       <Price>
-        US$ {price}
+        US$ {itemTotalPrice}
       </Price>
     </Container>
   )

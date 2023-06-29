@@ -22,9 +22,13 @@ export function Header() {
     navigate("/checkout");
   }
 
+  function handleLogoClick() {
+    navigate("/");
+  }
+
   return (
     <HeaderContainer>
-      <img src={LogoImg} alt="Coffee Delivery" />
+      <img src={LogoImg} alt="Coffee Delivery" onClick={handleLogoClick} />
 
       <LocationAndCart>
         <LocationContainer>
@@ -36,13 +40,13 @@ export function Header() {
         </LocationContainer>
 
         <CartButton onClick={handleCartButtonClick}>
-          {cart?.totalUnits && cart.totalUnits > 0 && (
+          {cart?.totalUnits && cart.totalUnits > 0 ? (
             <BadgeContainer>
               <span>
                 {cart?.totalUnits}
               </span>
             </BadgeContainer>
-          )}
+          ) : ""}
           <img src={CartIcon} alt="Cart" />
         </CartButton>
       </LocationAndCart>
