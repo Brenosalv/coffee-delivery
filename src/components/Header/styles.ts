@@ -7,6 +7,10 @@ export const HeaderContainer = styled.nav`
   padding: 2rem 0;
 `
 
+export const Logo = styled.img`
+  cursor: pointer;
+`
+
 export const LocationAndCart = styled.div`
   display: flex;
   gap: 12px;

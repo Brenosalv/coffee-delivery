@@ -10,6 +10,7 @@ import {
   HeaderContainer,
   LocationAndCart,
   LocationContainer,
+  Logo,
   UserLocation
 } from "./styles";
 
@@ -28,7 +29,7 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <img src={LogoImg} alt="Coffee Delivery" onClick={handleLogoClick} />
+      <Logo src={LogoImg} alt="Coffee Delivery" onClick={handleLogoClick} />
 
       <LocationAndCart>
         <LocationContainer>
