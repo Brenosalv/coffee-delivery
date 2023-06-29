@@ -43,6 +43,12 @@ export const Input = styled.input`
   color: ${(props) => props.theme.text};
 
   font-size: 0.875rem;
+  
+  &:focus {
+    outline: none;
+    border-color: ${(props) => props.theme.purple};
+    box-shadow: none;
+  }
 `
 
 export const CepInput = styled(Input)`
