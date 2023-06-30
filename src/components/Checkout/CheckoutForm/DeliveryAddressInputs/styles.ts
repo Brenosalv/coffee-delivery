@@ -2,18 +2,30 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 16px;
+`
 
-  div:nth-of-type(1) {
-    display: flex;
-    gap: 12px;
-  }
+export const Row1 = styled.div`
+  display: grid;
+  gap: 12px;
+  width: 200px;
+`
 
-  div:nth-of-type(2) {
-    display: flex;
-    gap: 12px;
-  }
+export const Row2 = styled.div`
+  display: grid;
+  gap: 12px;
+`
+
+export const Row3 = styled.div`
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 200px auto;
+`
+
+export const Row4 = styled.div`
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 200px auto 60px;
 `
 
 export const Input = styled.input`
@@ -51,7 +63,6 @@ export const NumberInput = styled(Input)`
 
 export const ComplementInput = styled(Input)`
   width: 100%;
-  flex: 1;
 `
 
 export const NeighborhoodInput = styled(Input)`
@@ -59,9 +70,14 @@ export const NeighborhoodInput = styled(Input)`
 `
 
 export const CityInput = styled(Input)`
-  flex: 1;
+  width: 100%;
 `
 
 export const StateInput = styled(Input)`
   width: 60px;
+`
+
+export const Error = styled.span`
+  color: ${(props) => props.theme.error};
+  font-size: 0.75rem;
 `

@@ -15,4 +15,5 @@ export const defaultTheme = {
   card: '#F3F2F2',
   background: '#FAFAFA',
   white: '#FFFFFF',
+  error: '#CC0000',
 }

@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useFormContext } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../../contexts/CartContext";
 import { defaultCurrency } from "../../../utils/currency";
 import { Title } from "../styles";
@@ -9,6 +10,7 @@ import { ConfirmOrder, Container, OrderDetailsContainer, OrderItemContainer, Ord
 export function OrderSummary() {
   const cart = useContext(CartContext);
   const form = useFormContext();
+  const navigate = useNavigate();
 
   function handleOrderItemRemove(coffeeId: string) {
     cart?.removeCoffeeFromCart(coffeeId);
@@ -23,8 +25,13 @@ export function OrderSummary() {
   }
 
   function handleFormSubmit(data: any) {
+    navigate("/success");
     console.log(data);
   }
+
+  useEffect(() => {
+    form.setValue("cartItems", cart?.cartItems);
+  }, [cart]);
 
   return (
     <Container>
