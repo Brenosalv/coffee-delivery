@@ -16,3 +16,20 @@ export const newOrderSchema = zod.object({
     units: zod.number().min(1, "Required at least 1 unit"),
   })),
 });
+
+export const checkoutFormInitialValue = {
+  cep: "",
+  street: "",
+  number: "",
+  complement: "",
+  neighborhood: "",
+  city: "",
+  state: "",
+  paymentMethod: "",
+  cartItems: [{
+    id: "",
+    name: "",
+    price: "",
+    units: 0,
+  }],
+}
