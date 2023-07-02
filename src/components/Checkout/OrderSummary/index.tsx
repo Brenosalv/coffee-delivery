@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../../contexts/CartContext";
+import { CheckoutFormData } from "../../../types/checkoutForm";
 import { defaultCurrency } from "../../../utils/currency";
 import { Title } from "../styles";
 import { OrderItem } from "./OrderItem";
@@ -24,9 +25,8 @@ export function OrderSummary() {
     cart?.updateCoffeeUnitFromCart(coffeeId, "add");
   }
 
-  function handleFormSubmit(data: any) {
-    navigate("/success");
-    console.log(data);
+  function handleFormSubmit(formData: CheckoutFormData) {
+    navigate("/success", { state: formData });
   }
 
   useEffect(() => {
