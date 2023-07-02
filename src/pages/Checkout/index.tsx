@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { CheckoutForm } from "../../components/Checkout/CheckoutForm";
 import { OrderSummary } from "../../components/Checkout/OrderSummary";
@@ -12,7 +13,9 @@ export function Checkout() {
     defaultValues: checkoutFormInitialValue
   });
 
-  document.title = "Coffee Delivery - Checkout";
+  useEffect(() => {
+    document.title = "Coffee Delivery - Checkout";
+  }, []);
 
   return (
     <FormProvider {...checkoutForm}>
