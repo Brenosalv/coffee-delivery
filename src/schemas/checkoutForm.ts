@@ -13,7 +13,7 @@ export const newOrderSchema = zod.object({
     id: zod.string().nonempty("Required product id"),
     name: zod.string().nonempty("Required product name"),
     price: zod.string().nonempty("Should be more than zero"),
-    units: zod.number().min(1, "Required at least 1 unit"),
+    units: zod.string().nonempty("Required at least 1 unit"),
   })),
 });
 
@@ -30,6 +30,6 @@ export const checkoutFormInitialValue = {
     id: "",
     name: "",
     price: "",
-    units: 0,
+    units: "",
   }],
 }

@@ -1,3 +1,4 @@
+import { useFormContext } from "react-hook-form";
 import Location from "../../../assets/generalIcons/Location2.svg";
 import Money from "../../../assets/generalIcons/Money.svg";
 import { paymentMethods } from "../../../assets/paymentMethods/paymentMethodsArray";
@@ -5,9 +6,11 @@ import { Title } from "../styles";
 import { DeliveryAddressInputs } from "./DeliveryAddressInputs";
 import { FormHeader } from "./FormHeader";
 import { PaymentMethod } from "./PaymentMethod";
-import { FormContainer, OrderForm, PaymentMethodsContainer } from "./styles";
+import { Error, FormContainer, OrderForm, PaymentMethodsContainer } from "./styles";
 
 export function CheckoutForm() {
+  const form = useFormContext();
+
   return (
     <OrderForm>
       <Title>
@@ -38,6 +41,11 @@ export function CheckoutForm() {
               {...paymentMethod}
             />
           ))}
+          {form.formState.errors.cep &&
+            <Error>
+              {form.formState.errors.paymentMethod?.message as string}
+            </Error>
+          }
         </PaymentMethodsContainer>
       </FormContainer>
     </OrderForm>

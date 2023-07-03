@@ -10,7 +10,7 @@ import { ConfirmOrder, Container, OrderDetailsContainer, OrderItemContainer, Ord
 
 export function OrderSummary() {
   const cart = useContext(CartContext);
-  const form = useFormContext();
+  const form = useFormContext<CheckoutFormData>();
   const navigate = useNavigate();
 
   function handleOrderItemRemove(coffeeId: string) {
@@ -30,7 +30,7 @@ export function OrderSummary() {
   }
 
   useEffect(() => {
-    form.setValue("cartItems", cart?.cartItems);
+    form.setValue("cartItems", cart?.cartItems ?? []);
   }, [cart]);
 
   return (

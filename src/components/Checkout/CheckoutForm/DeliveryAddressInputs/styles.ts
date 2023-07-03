@@ -76,8 +76,3 @@ export const CityInput = styled(Input)`
 export const StateInput = styled(Input)`
   width: 60px;
 `
-
-export const Error = styled.span`
-  color: ${(props) => props.theme.error};
-  font-size: 0.75rem;
-`

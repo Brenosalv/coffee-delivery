@@ -1,5 +1,6 @@
 import { useFormContext } from "react-hook-form";
-import { CepInput, CityInput, ComplementInput, Container, Error, NeighborhoodInput, NumberInput, Row1, Row2, Row3, Row4, StateInput, StreetInput } from "./styles";
+import { Error } from "../styles";
+import { CepInput, CityInput, ComplementInput, Container, NeighborhoodInput, NumberInput, Row1, Row2, Row3, Row4, StateInput, StreetInput } from "./styles";
 
 export function DeliveryAddressInputs() {
   const form = useFormContext();

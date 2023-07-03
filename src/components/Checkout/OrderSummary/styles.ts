@@ -47,4 +47,7 @@ export const ConfirmOrder = styled.button`
   color: ${(props) => props.theme.white};
   width: 100%;
   margin-top: 24px;
+  font-weight: 700;
+  line-height: 160%;
+  text-transform: uppercase;
 `

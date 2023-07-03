@@ -23,3 +23,8 @@ export const PaymentMethodsContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
 `
+
+export const Error = styled.span`
+  color: ${(props) => props.theme.error};
+  font-size: 0.75rem;
+`
