@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import CartIcon from "../../assets/generalIcons/Cart.svg";
 import LocationIcon from "../../assets/generalIcons/Location.svg";
 import LogoImg from "../../assets/generalIcons/Logo.svg";
@@ -18,6 +18,9 @@ export function Header() {
   const cart = useContext(CartContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isBadgeVisible = cart?.totalUnits && cart.totalUnits > 0 && location.pathname !== "/success";
 
   function handleCartButtonClick() {
     navigate("/checkout");
@@ -41,7 +44,7 @@ export function Header() {
         </LocationContainer>
 
         <CartButton onClick={handleCartButtonClick}>
-          {cart?.totalUnits && cart.totalUnits > 0 ? (
+          {isBadgeVisible ? (
             <BadgeContainer>
               <span>
                 {cart?.totalUnits}
