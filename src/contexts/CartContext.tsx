@@ -10,6 +10,7 @@ interface CartContextData {
   addCoffeeToCart: (coffeeCartDetails: CoffeeCartDetails) => void;
   removeCoffeeFromCart: (coffeeId: string) => void;
   updateCoffeeUnitFromCart: (coffeeId: string, signal: "add" | "remove") => void;
+  clearCartInLocalStorage: () => void;
 }
 
 interface CartContextProviderProps {
@@ -92,6 +93,11 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setWasCartUpdated(prev => !prev);
   }
 
+  function clearCartInLocalStorage() {
+    localStorage.removeItem("@cart");
+    setWasCartUpdated(prev => !prev);
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -103,6 +109,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         addCoffeeToCart,
         removeCoffeeFromCart,
         updateCoffeeUnitFromCart,
+        clearCartInLocalStorage
       }}
     >
       {children}
