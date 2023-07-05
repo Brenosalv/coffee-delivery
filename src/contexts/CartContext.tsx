@@ -29,7 +29,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   const totalPrice = (Number(subtotalPrice ?? 0) + Number(deliveryPrice)).toFixed(2);
 
   useEffect(() => {
-    const currentCartItems = localStorage.getItem("@cart");
+    const currentCartItems = localStorage.getItem("@coffee-delivery:cart-1.0.0");
 
     if (currentCartItems) {
       const parsedCurrentCartItems: CoffeeCartDetails[] = JSON.parse(currentCartItems);
@@ -50,36 +50,38 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
           .reduce((partialSum, a) => partialSum + Number(a), 0))
           .toFixed(2)
       );
+    } else {
+      setTotalUnits(0);
     }
   }, [wasCartUpdated]);
 
   function addCoffeeToCart(coffeeCartDetails: CoffeeCartDetails) {
-    const currentCartItems = localStorage.getItem("@cart");
+    const currentCartItems = localStorage.getItem("@coffee-delivery:cart-1.0.0");
 
     if (currentCartItems) {
       const parsedCurrentCartItems = JSON.parse(currentCartItems);
-      localStorage.setItem("@cart", JSON.stringify([...parsedCurrentCartItems, coffeeCartDetails]));
+      localStorage.setItem("@coffee-delivery:cart-1.0.0", JSON.stringify([...parsedCurrentCartItems, coffeeCartDetails]));
     } else {
-      localStorage.setItem("@cart", JSON.stringify([coffeeCartDetails]));
+      localStorage.setItem("@coffee-delivery:cart-1.0.0", JSON.stringify([coffeeCartDetails]));
     }
 
     setWasCartUpdated(prev => !prev);
   }
 
   function removeCoffeeFromCart(coffeeId: string) {
-    const currentCartItems = localStorage.getItem("@cart");
+    const currentCartItems = localStorage.getItem("@coffee-delivery:cart-1.0.0");
 
     if (currentCartItems) {
       const parsedCurrentCartItems: CoffeeCartDetails[] = JSON.parse(currentCartItems);
       const updatedCartItems = parsedCurrentCartItems?.filter(cartItem => cartItem.id !== coffeeId)
-      localStorage.setItem("@cart", JSON.stringify(updatedCartItems));
+      localStorage.setItem("@coffee-delivery:cart-1.0.0", JSON.stringify(updatedCartItems));
     }
 
     setWasCartUpdated(prev => !prev);
   }
 
   function updateCoffeeUnitFromCart(coffeeId: string, signal: "add" | "remove") {
-    const currentCartItems = localStorage.getItem("@cart");
+    const currentCartItems = localStorage.getItem("@coffee-delivery:cart-1.0.0");
 
     if (currentCartItems) {
       const parsedCurrentCartItems: CoffeeCartDetails[] = JSON.parse(currentCartItems);
@@ -87,14 +89,14 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       const indexOfCartItemToUpdate = parsedCurrentCartItems.indexOf(cartItemToUpdate ?? {} as CoffeeCartDetails);
       const cartItemUpdated = { ...cartItemToUpdate, units: signal === "add" ? Number(cartItemToUpdate?.units) + 1 : Number(cartItemToUpdate?.units) - 1 };
       const cartItemsWithoutItemToUpdate = parsedCurrentCartItems?.filter(cartItem => cartItem.id !== coffeeId)
-      localStorage.setItem("@cart", JSON.stringify([...cartItemsWithoutItemToUpdate.slice(0, indexOfCartItemToUpdate), cartItemUpdated, ...cartItemsWithoutItemToUpdate.slice(indexOfCartItemToUpdate)]));
+      localStorage.setItem("@coffee-delivery:cart-1.0.0", JSON.stringify([...cartItemsWithoutItemToUpdate.slice(0, indexOfCartItemToUpdate), cartItemUpdated, ...cartItemsWithoutItemToUpdate.slice(indexOfCartItemToUpdate)]));
     }
 
     setWasCartUpdated(prev => !prev);
   }
 
   function clearCartInLocalStorage() {
-    localStorage.removeItem("@cart");
+    localStorage.removeItem("@coffee-delivery:cart-1.0.0");
     setWasCartUpdated(prev => !prev);
   }
 

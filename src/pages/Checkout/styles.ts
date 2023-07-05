@@ -6,3 +6,12 @@ export const Container = styled.div`
   gap: 32px;
   margin-top: 72px;
 `
+
+export const EmptyCartContainer = styled.div`
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 128px;
+`
