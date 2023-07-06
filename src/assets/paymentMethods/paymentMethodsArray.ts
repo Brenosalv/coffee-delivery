@@ -8,16 +8,16 @@ export const paymentMethods: PaymentMethodType[] = [
   {
     id: uuidv4(),
     src: creditCardIcon,
-    name: "CREDIT CARD",
+    name: "Credit Card",
   },
   {
     id: uuidv4(),
     src: debitCardIcon,
-    name: "DEBIT CARD",
+    name: "Debit Card",
   },
   {
     id: uuidv4(),
     src: cashIcon,
-    name: "CASH",
+    name: "Cash",
   },
 ]

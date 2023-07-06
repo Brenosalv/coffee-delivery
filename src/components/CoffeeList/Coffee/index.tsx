@@ -41,7 +41,7 @@ export function CoffeeCard({ id, name, description, imageName, tags, price }: Co
 
       <TagsContainer>
         {tags.map((tag) => (
-          <Tag label={tag} />
+          <Tag key={tag} label={tag} />
         ))}
       </TagsContainer>
 

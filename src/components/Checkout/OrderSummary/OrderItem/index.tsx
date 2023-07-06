@@ -1,5 +1,5 @@
 import { useState } from "react";
-import TrashIcon from "../../../../assets/generalIcons/trash.svg";
+import TrashIcon from "../../../../assets/generalIcons/Trash.svg";
 import { CoffeeCartDetails } from "../../../../types/coffees";
 import { CartUnitsLimit } from "../../../../utils/cartUnitsLimit";
 import { defaultCurrency } from "../../../../utils/currency";

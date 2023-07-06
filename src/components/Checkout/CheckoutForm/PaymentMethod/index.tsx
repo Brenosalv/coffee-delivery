@@ -15,7 +15,7 @@ export function PaymentMethod({ id, src, name }: PaymentMethodType) {
           {...form.register("paymentMethod")}
         />
         <img src={src} alt="" />
-        <Title>{name}</Title>
+        <Title>{name.toUpperCase()}</Title>
       </RadioButtonCheckedLabel >
     )
   }
@@ -29,7 +29,7 @@ export function PaymentMethod({ id, src, name }: PaymentMethodType) {
         {...form.register("paymentMethod")}
       />
       <img src={src} alt="" />
-      <Title>{name}</Title>
+      <Title>{name.toUpperCase()}</Title>
     </RadioButtonLabel >
   )
 }
