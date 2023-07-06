@@ -41,13 +41,12 @@ export function OrderSummary() {
 
       <OrderDetailsContainer>
         {cart?.cartItems?.map((orderItem) => (
-          <OrderItemContainer>
+          <OrderItemContainer key={orderItem.id}>
             <OrderItem
-              key={orderItem.id}
+              {...orderItem}
               onRemoveOrderItem={handleOrderItemRemove}
               onRemoveOrderItemUnit={handleOrderItemRemoveUnit}
               onAddOrderItemUnit={handleOrderItemAddUnit}
-              {...orderItem}
             />
 
             <hr />

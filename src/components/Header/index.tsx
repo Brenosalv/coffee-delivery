@@ -28,6 +28,7 @@ export function Header() {
 
   function handleLogoClick() {
     navigate("/");
+    cart?.updateCart();
   }
 
   return (

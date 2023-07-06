@@ -11,6 +11,7 @@ interface CartContextData {
   removeCoffeeFromCart: (coffeeId: string) => void;
   updateCoffeeUnitFromCart: (coffeeId: string, signal: "add" | "remove") => void;
   clearCartInLocalStorage: () => void;
+  updateCart: () => void;
 }
 
 interface CartContextProviderProps {
@@ -55,17 +56,41 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     }
   }, [wasCartUpdated]);
 
+  function updateCart() {
+    setWasCartUpdated(prev => !prev);
+  }
+
   function addCoffeeToCart(coffeeCartDetails: CoffeeCartDetails) {
     const currentCartItems = localStorage.getItem("@coffee-delivery:cart-1.0.0");
 
     if (currentCartItems) {
-      const parsedCurrentCartItems = JSON.parse(currentCartItems);
-      localStorage.setItem("@coffee-delivery:cart-1.0.0", JSON.stringify([...parsedCurrentCartItems, coffeeCartDetails]));
+      const parsedCurrentCartItems: CoffeeCartDetails[] = JSON.parse(currentCartItems);
+
+      const coffeeAlreadyInCart = parsedCurrentCartItems.find(item => item.id === coffeeCartDetails.id);
+
+      if (coffeeAlreadyInCart?.id) {
+        const parsedCurrentCartItemsWithoutCoffeeAlreadyInCart = parsedCurrentCartItems.filter(item => item.id !== coffeeAlreadyInCart.id);
+
+        localStorage.removeItem("@coffee-delivery:cart-1.0.0");
+
+        localStorage.setItem(
+          "@coffee-delivery:cart-1.0.0",
+          JSON.stringify(
+            [
+              ...parsedCurrentCartItemsWithoutCoffeeAlreadyInCart, {
+                ...coffeeCartDetails, units: (Number(coffeeAlreadyInCart.units) + Number(coffeeCartDetails.units)).toString()
+              }
+            ]
+          )
+        );
+      } else {
+        localStorage.setItem("@coffee-delivery:cart-1.0.0", JSON.stringify([...parsedCurrentCartItems, coffeeCartDetails]));
+      }
     } else {
       localStorage.setItem("@coffee-delivery:cart-1.0.0", JSON.stringify([coffeeCartDetails]));
     }
 
-    setWasCartUpdated(prev => !prev);
+    updateCart();
   }
 
   function removeCoffeeFromCart(coffeeId: string) {
@@ -77,7 +102,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       localStorage.setItem("@coffee-delivery:cart-1.0.0", JSON.stringify(updatedCartItems));
     }
 
-    setWasCartUpdated(prev => !prev);
+    updateCart();
   }
 
   function updateCoffeeUnitFromCart(coffeeId: string, signal: "add" | "remove") {
@@ -87,17 +112,17 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       const parsedCurrentCartItems: CoffeeCartDetails[] = JSON.parse(currentCartItems);
       const cartItemToUpdate = parsedCurrentCartItems.find((item) => item.id === coffeeId);
       const indexOfCartItemToUpdate = parsedCurrentCartItems.indexOf(cartItemToUpdate ?? {} as CoffeeCartDetails);
-      const cartItemUpdated = { ...cartItemToUpdate, units: signal === "add" ? Number(cartItemToUpdate?.units) + 1 : Number(cartItemToUpdate?.units) - 1 };
+      const cartItemUpdated = { ...cartItemToUpdate, units: signal === "add" ? (Number(cartItemToUpdate?.units) + 1).toString() : (Number(cartItemToUpdate?.units) - 1).toString() };
       const cartItemsWithoutItemToUpdate = parsedCurrentCartItems?.filter(cartItem => cartItem.id !== coffeeId)
       localStorage.setItem("@coffee-delivery:cart-1.0.0", JSON.stringify([...cartItemsWithoutItemToUpdate.slice(0, indexOfCartItemToUpdate), cartItemUpdated, ...cartItemsWithoutItemToUpdate.slice(indexOfCartItemToUpdate)]));
     }
 
-    setWasCartUpdated(prev => !prev);
+    updateCart();
   }
 
   function clearCartInLocalStorage() {
     localStorage.removeItem("@coffee-delivery:cart-1.0.0");
-    setWasCartUpdated(prev => !prev);
+    updateCart();
   }
 
   return (
@@ -111,7 +136,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         addCoffeeToCart,
         removeCoffeeFromCart,
         updateCoffeeUnitFromCart,
-        clearCartInLocalStorage
+        clearCartInLocalStorage,
+        updateCart
       }}
     >
       {children}

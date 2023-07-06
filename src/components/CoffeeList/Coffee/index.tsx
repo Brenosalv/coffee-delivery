@@ -76,7 +76,7 @@ export function CoffeeCard({ id, name, description, imageName, tags, price }: Co
                 units: coffeeUnits.toString()
               })}
           >
-            <ShoppingCartIcon src={ShoppingCart} alt="" />
+            <ShoppingCartIcon src={ShoppingCart} alt="Cart icon" />
           </button>
         </ButtonsContainer>
       </FooterContainer>
