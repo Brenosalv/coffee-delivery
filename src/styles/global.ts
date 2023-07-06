@@ -30,9 +30,9 @@ export const GlobalStyle = createGlobalStyle`
     border: none;
 
     &:hover {
-    opacity: .85;
-    transition: ease-in-out 50ms;
-    cursor: pointer;
-  }
+      opacity: .85;
+      transition: ease-in-out 50ms;
+      cursor: pointer;
+    }
   }
 `

@@ -6,7 +6,7 @@ import LocationIcon from "../../assets/generalIcons/Location3.svg";
 import MoneyIcon from "../../assets/generalIcons/Money2.svg";
 import { CartContext } from "../../contexts/CartContext";
 import { CheckoutFormData } from "../../types/checkoutForm";
-import { BodyContainer, HeaderContainer, OrderDetailsContainer, OrderDetailsContainerBorderWrapper } from "./styles";
+import { BodyContainer, HeaderContainer, MotoboyImage, OrderDetailsContainer, OrderDetailsContainerBorderWrapper } from "./styles";
 
 export function Success() {
   const { state } = useLocation();
@@ -77,7 +77,7 @@ export function Success() {
           </OrderDetailsContainer>
         </OrderDetailsContainerBorderWrapper>
 
-        <img src={MotoboyDelivering} alt="Motoboy delivering" />
+        <MotoboyImage src={MotoboyDelivering} alt="Motoboy delivering" />
       </BodyContainer>
     </>
   )

@@ -31,6 +31,14 @@ export const BodyContainer = styled.div`
   img {
     margin-left: auto;
   }
+
+  @media(max-width: 800px) {
+    grid-template-columns: 1fr;
+
+    img {
+      margin: auto;
+    }
+  }
 `
 
 export const OrderDetailsContainerBorderWrapper = styled.div`
@@ -44,7 +52,6 @@ export const OrderDetailsContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
-  position: relative;
   background-color: white;
   border-radius: 6px 36px;
   padding: 40px;
@@ -64,4 +71,9 @@ export const OrderDetailsContainer = styled.div`
       gap: 4px;
     }
   }
+`
+
+export const MotoboyImage = styled.img`
+  width: 100%;
+  height: auto;
 `
