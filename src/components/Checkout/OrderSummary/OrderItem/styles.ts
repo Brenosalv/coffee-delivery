@@ -13,6 +13,10 @@ export const Container = styled.div`
       display: flex;
       flex-direction: row;
       gap: 8px;
+
+      @media(max-width: 470px) {
+        flex-direction: column;
+      }
     }
   }
 `
@@ -42,6 +46,10 @@ export const Price = styled.span`
   margin-left: auto;
   color: ${(props) => props.theme.text};
   font-weight: 700;
+
+  @media(max-width: 400px) {
+    display: none;
+  }
 `
 
 export const RemoveButton = styled.button`

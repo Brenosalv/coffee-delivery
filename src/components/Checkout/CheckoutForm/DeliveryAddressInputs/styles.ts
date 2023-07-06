@@ -9,6 +9,10 @@ export const Row1 = styled.div`
   display: grid;
   gap: 12px;
   width: 200px;
+
+  @media(max-width: 600px) {
+    width: 100%;
+  }
 `
 
 export const Row2 = styled.div`
@@ -20,12 +24,20 @@ export const Row3 = styled.div`
   display: grid;
   gap: 12px;
   grid-template-columns: 200px auto;
+
+  @media(max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const Row4 = styled.div`
   display: grid;
   gap: 12px;
   grid-template-columns: 200px auto 60px;
+
+  @media(max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const Input = styled.input`
@@ -51,6 +63,10 @@ export const Input = styled.input`
 
 export const CepInput = styled(Input)`
   width: 200px;
+
+  @media(max-width: 600px) {
+    width: 100%;
+  }
 `
 
 export const StreetInput = styled(Input)`
@@ -59,6 +75,10 @@ export const StreetInput = styled(Input)`
 
 export const NumberInput = styled(Input)`
   width: 200px;
+
+  @media(max-width: 600px) {
+    width: 100%;
+  }
 `
 
 export const ComplementInput = styled(Input)`
@@ -67,6 +87,10 @@ export const ComplementInput = styled(Input)`
 
 export const NeighborhoodInput = styled(Input)`
   width: 200px;
+
+  @media(max-width: 600px) {
+    width: 100%;
+  }
 `
 
 export const CityInput = styled(Input)`
@@ -75,4 +99,8 @@ export const CityInput = styled(Input)`
 
 export const StateInput = styled(Input)`
   width: 60px;
+
+  @media(max-width: 600px) {
+    width: 100%;
+  }
 `
