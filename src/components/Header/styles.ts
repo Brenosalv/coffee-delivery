@@ -24,6 +24,10 @@ export const LocationContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
+
+  @media (max-width: 400px) {
+    display: none;
+  }
 `
 
 export const UserLocation = styled.p`

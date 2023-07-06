@@ -4,6 +4,13 @@ export const IntroContainer = styled.div`
   display: flex;
   gap: 56px;
   margin: 94px 0;
+
+  @media (max-width: 1220px) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 export const TextContainer = styled.div`
@@ -49,4 +56,13 @@ export const ItemContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
+`
+
+export const CoffeeIllustrationImage = styled.img`
+  width: 70%;
+  height: auto;
+
+  @media (max-width: 800px) {
+    width: 90%;
+  }
 `

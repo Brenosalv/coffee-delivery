@@ -4,6 +4,7 @@ import Clock from "../../assets/IntroItems/Clock.svg";
 import Cup from "../../assets/IntroItems/Cup.svg";
 import Packet from "../../assets/IntroItems/Packet.svg";
 import {
+  CoffeeIllustrationImage,
   IntroContainer,
   ItemContainer,
   ItemText,
@@ -29,7 +30,7 @@ export function Intro() {
           <ItemContainer>
             <img src={Cart} alt="" />
             <ItemText>
-              Simples and safe purchase
+              Simple and safe purchase
             </ItemText>
           </ItemContainer>
           <ItemContainer>
@@ -53,7 +54,7 @@ export function Intro() {
         </ItemsContainer>
       </TextContainer>
 
-      <img src={CoffeDeliveryIntroImage} alt="" />
+      <CoffeeIllustrationImage src={CoffeDeliveryIntroImage} alt="Coffee ilustration" />
     </IntroContainer>
   )
 }

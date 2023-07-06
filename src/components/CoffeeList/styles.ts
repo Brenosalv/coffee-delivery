@@ -16,4 +16,11 @@ export const CoffeesListContainer = styled.div`
   grid-row-gap: 54px;
   grid-column-gap: 32px;
   margin: 54px 0;
+
+  @media (max-width: 1220px) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
 `
