@@ -1,4 +1,3 @@
-```markdown
 # Coffee Delivery
 
 Welcome to Coffee Delivery
@@ -72,4 +71,3 @@ Feel free to explore the codebase, experiment, and implement additional features
 ---
 
 Happy coding! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request. Your contributions are welcome and appreciated!
-```
