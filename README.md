@@ -46,8 +46,8 @@ Before running the application, ensure you have Node.js and npm installed on you
 1. Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/cafe-app.git
-cd cafe-app
+git clone https://github.com/Brenosalv/coffee-delivery.git
+cd coffee-delivery
 ```
 
 2. Install the dependencies:
