@@ -10,6 +10,8 @@ A responsive coffee delivery frontend side of a website developed with React.js.
 
 As a React application designed to manage the shopping cart of a fictional coffee shop, this project aims to provide a simple and intuitive interface for users to browse available coffee products, add items to the cart, modify quantities, fill in their address, and view the total value of the cart.
 
+Deployed on Vercel: https://coffee-delivery-orcin.vercel.app/
+
 ## Table of Contents
 
 - [Features](#features)
